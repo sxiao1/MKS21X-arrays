@@ -1,13 +1,34 @@
 public class ArrayDemo{
-  int [] ary1 = { {1,2,3,4,5} };
-  int [][] ary2 = { {1,2,3,4,5}
-                   {6,7,8,9,10} };
-  int [][] ary3 = { {0,2,0,4,5}
-                   {0,5,6,7,0} };
-  System.out.println(printArray(ary1));
-  System.out.println(printArray(ary2));
+  public static void main(String[] args){
+    int[] ary1;
+    ary1 = new int [10];
+    for (int x = 0; x < ary1.length; x++){
+      ary1[x] = 100 + x * 10;
+    }
+    printArray(ary1);
+
+    int[][] ary2;
+    ary2 = new int[3][4];
+    for (int x = 0; x < ary2.length; x++){
+      for (int y = 0; y < ary2[x].length; y++){
+        ary2[x][y] = (x * 2) - (y + 3);
+      }
+    }
+    printArray(ary2);
+    fill2D(ary2);
+
+    int[][] ary3;
+    ary3 = new int [3][4];
+    for(int x = 0; x < ary3.length; x++){
+      for(int y = 0; y < ary3[x].length; y++){
+        ary3[x][y] = (x * 2) - 2;
+      }
+    }
+    System.out.println("there are " + countZeros2D(ary3) + " zeros in this array");
+    fill2DCopy(ary3);
+  }
   public static void printArray(int[]ary){
-    System.out.println("[");
+    System.out.print("[");
     for (int x = 0; x < ary.length; x++){
       if (x != ary.length - 1){
         System.out.print(ary[x] + ",");
@@ -16,20 +37,20 @@ public class ArrayDemo{
         System.out.print(ary[x]);
       }
     }
-    System.out.print("]");
+    System.out.print("] \n");
   }
   public static void printArray(int[][]ary){
     for(int x = 0; x < ary.length; x++){
       for (int y = 0; y < ary[x].length; y++){
         if (y == 0){
-          System.out.println("[");
-          System.out.print(ary[y] + ",");
+          System.out.print("[");
+          System.out.print(ary[x][y] + ",");
         }
-        if(y == ary[y].length - 1){
-          System.out.print(ary[y] + "]");
+        if(y == ary[x].length - 1){
+          System.out.print(ary[x][y] + "] \n");
         }
         else{
-          System.out.print(ary[y] + ",");
+          System.out.print(ary[x][y] + ",");
         }
       }
   }
@@ -56,12 +77,12 @@ public static void fill2D(int[][] vals){
       }
     }
   }
-  return vals;
+  printArray (vals);
 }
   public static int[][] fill2DCopy(int[][] vals){
     int [][] newvals = new int [vals.length][vals[0].length];
-    for (int x = 0; x < ary.length; x++){
-      for (int y = 0; y < ary[x].length, y++){
+    for (int x = 0; x < newvals.length; x++){
+      for (int y = 0; y < newvals[x].length; y++){
         if(vals[x][y] < 0){
           newvals[x][y] = 3;
         }
@@ -70,8 +91,9 @@ public static void fill2D(int[][] vals){
         }
       }
     }
+    printArray(newvals);
     return newvals;
-} 
-  
+}
+
 
 }
