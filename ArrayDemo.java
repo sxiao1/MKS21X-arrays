@@ -1,4 +1,11 @@
 public class ArrayDemo{
+  int [] ary1 = { {1,2,3,4,5} };
+  int [][] ary2 = { {1,2,3,4,5}
+                   {6,7,8,9,10} };
+  int [][] ary3 = { {0,2,0,4,5}
+                   {0,5,6,7,0} };
+  System.out.println(printArray(ary1));
+  System.out.println(printArray(ary2));
   public static void printArray(int[]ary){
     System.out.println("[");
     for (int x = 0; x < ary.length; x++){
