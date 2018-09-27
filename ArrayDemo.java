@@ -49,6 +49,22 @@ public static void fill2D(int[][] vals){
       }
     }
   }
+  return vals;
 }
+  public static int[][] fill2DCopy(int[][] vals){
+    int [][] newvals = new int [vals.length][vals[0].length];
+    for (int x = 0; x < ary.length; x++){
+      for (int y = 0; y < ary[x].length, y++){
+        if(vals[x][y] < 0){
+          newvals[x][y] = 3;
+        }
+        else{
+          newvals[x][y] = 1;
+        }
+      }
+    }
+    return newvals;
+} 
+  
 
 }
